@@ -22,11 +22,11 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: #f3f4f6;
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster';
   font-size: 20px;
   letter-spacing: 1px;
-  background-color: #181818;
-  background: linear-gradient(to right, #181818, black);
+  background-color: #e0e0e0;
+  background: linear-gradient(to right, #3f3f40, #3f3f40);
 }
 
 button {
@@ -55,33 +55,29 @@ button:hover {
 button:active{
   background-image: linear-gradient(
     45deg,
-    hsl(308deg 100% 86%) 0%,
-    hsl(299deg 81% 84%) 11%,
-    hsl(290deg 84% 83%) 22%,
-    hsl(282deg 87% 82%) 33%,
-    hsl(273deg 90% 82%) 44%,
-    hsl(265deg 92% 81%) 56%,
-    hsl(257deg 95% 81%) 67%,
-    hsl(249deg 96% 80%) 78%,
-    hsl(240deg 98% 80%) 89%,
-    hsl(231deg 98% 76%) 100%
-        );;
+    #3498db 0%,    /* Royal Blue */
+    #174978 33%,   /* Lighter Blue */
+  #2F5F8A 44%,   /* Light Blue */
+  #46769B 55%,   /* Medium Blue */
+  #5E8CAD 66%,   /* Darker Blue */
+  #75A2BF 77%,   /* Dark Blue */
+  #824f65 88%,   /* Even Darker Blue */  /* Extremely Dark Blue */
+  #4189c4 99%   /* Lighter Blue */
+      );;
 }
 
 button:focus{
   background-image: linear-gradient(
     45deg,
-    hsl(308deg 100% 86%) 0%,
-    hsl(299deg 81% 84%) 11%,
-    hsl(290deg 84% 83%) 22%,
-    hsl(282deg 87% 82%) 33%,
-    hsl(273deg 90% 82%) 44%,
-    hsl(265deg 92% 81%) 56%,
-    hsl(257deg 95% 81%) 67%,
-    hsl(249deg 96% 80%) 78%,
-    hsl(240deg 98% 80%) 89%,
-    hsl(231deg 98% 76%) 100%
-        );;
+    #3498db 0%,    /* Royal Blue */
+    #174978 33%,   /* Lighter Blue */
+  #2F5F8A 44%,   /* Light Blue */
+  #46769B 55%,   /* Medium Blue */
+  #5E8CAD 66%,   /* Darker Blue */
+  #75A2BF 77%,   /* Dark Blue */
+  #824f65 88%,   /* Even Darker Blue */  /* Extremely Dark Blue */
+  #4189c4 99%   /* Lighter Blue */
+      );;
 }
 
 
@@ -109,17 +105,15 @@ button:focus{
   border: solid white 2px;
   background-image: linear-gradient(
     45deg,
-    hsl(308deg 100% 86%) 0%,
-    hsl(299deg 81% 84%) 11%,
-    hsl(290deg 84% 83%) 22%,
-    hsl(282deg 87% 82%) 33%,
-    hsl(273deg 90% 82%) 44%,
-    hsl(265deg 92% 81%) 56%,
-    hsl(257deg 95% 81%) 67%,
-    hsl(249deg 96% 80%) 78%,
-    hsl(240deg 98% 80%) 89%,
-    hsl(231deg 98% 76%) 100%
-        );;
+    #3498db 0%,    /* Royal Blue */
+    #174978 33%,   /* Lighter Blue */
+  #2F5F8A 44%,   /* Light Blue */
+  #46769B 55%,   /* Medium Blue */
+  #5E8CAD 66%,   /* Darker Blue */
+  #75A2BF 77%,   /* Dark Blue */
+  #824f65 88%,   /* Even Darker Blue */  /* Extremely Dark Blue */
+  #4189c4 99%   /* Lighter Blue */
+      );;
 }
 
 .form-control:focus{
@@ -226,17 +220,15 @@ button:focus{
 	outline: none;
 	background-image: linear-gradient(
 	45deg,
-	hsl(308deg 100% 86%) 0%,
-	hsl(299deg 81% 84%) 11%,
-	hsl(290deg 84% 83%) 22%,
-	hsl(282deg 87% 82%) 33%,
-	hsl(273deg 90% 82%) 44%,
-	hsl(265deg 92% 81%) 56%,
-	hsl(257deg 95% 81%) 67%,
-	hsl(249deg 96% 80%) 78%,
-	hsl(240deg 98% 80%) 89%,
-	hsl(231deg 98% 76%) 100%
-      );
+  #3498db 0%,    /* Royal Blue */
+  #174978 33%,   /* Lighter Blue */
+#2F5F8A 44%,   /* Light Blue */
+#46769B 55%,   /* Medium Blue */
+#5E8CAD 66%,   /* Darker Blue */
+#75A2BF 77%,   /* Dark Blue */
+#824f65 88%,   /* Even Darker Blue */  /* Extremely Dark Blue */
+#4189c4 99%   /* Lighter Blue */
+    );
 }
 form label{
 	color: white;
@@ -255,21 +247,20 @@ form label{
   padding-top: 30px;
   border-radius: 10px;
   padding-bottom: 40px;
-  border: solid white 2px;
+  border: solid #3498db 2px;
   justify-content: center;
+  background-color: #f8f9fa; /* Light gray background */
   background-image: linear-gradient(
 	45deg,
-	hsl(308deg 100% 86%) 0%,
-	hsl(299deg 81% 84%) 11%,
-	hsl(290deg 84% 83%) 22%,
-	hsl(282deg 87% 82%) 33%,
-	hsl(273deg 90% 82%) 44%,
-	hsl(265deg 92% 81%) 56%,
-	hsl(257deg 95% 81%) 67%,
-	hsl(249deg 96% 80%) 78%,
-	hsl(240deg 98% 80%) 89%,
-	hsl(231deg 98% 76%) 100%
-      );
+	#3498db 0%,    /* Royal Blue */
+  #174978 33%,   /* Lighter Blue */
+#2F5F8A 44%,   /* Light Blue */
+#46769B 55%,   /* Medium Blue */
+#5E8CAD 66%,   /* Darker Blue */
+#75A2BF 77%,   /* Dark Blue */
+#824f65 88%,   /* Even Darker Blue */  /* Extremely Dark Blue */
+#4189c4 99%   /* Lighter Blue */
+    );
 }
 
 .card {

@@ -18,7 +18,7 @@ const SearchForm = (props) => {
   React.useEffect(() => {
     const loadModels = async () => {
       const MODEL_URL = process.env.PUBLIC_URL + '/models';
-
+      
       Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
         faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
@@ -43,6 +43,32 @@ const SearchForm = (props) => {
       });
   }
 
+  // const startVideo = () => {
+  //   setCaptureVideo(true);
+  
+  //   // Specify the desired constraints with the deviceId for the external camera
+  //   const constraints = {
+  //     video: {
+  //       width: 300,
+  //       deviceId: {
+  //         // Replace 'your_external_camera_device_id' with the actual device ID
+  //         exact: '0c45:636d',
+  //       },
+  //     },
+  //   };
+  
+  //   navigator.mediaDevices
+  //     .getUserMedia(constraints)
+  //     .then(stream => {
+  //       let video = videoRef.current;
+  //       video.srcObject = stream;
+  //       video.play();
+  //     })
+  //     .catch(err => {
+  //       console.error("error:", err);
+  //     });
+  // }
+  
   const handleVideoOnPlay = () => {
     setInterval(async () => {
       if (canvasRef && canvasRef.current) {
@@ -51,27 +77,30 @@ const SearchForm = (props) => {
           width: videoWidth,
           height: videoHeight
         }
-
+  
         faceapi.matchDimensions(canvasRef.current, displaySize);
-
+  
         const detections = await faceapi.detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-
-        const resizedDetections = faceapi.resizeResults(detections, displaySize);
-
-        canvasRef && canvasRef.current && canvasRef.current.getContext('2d').clearRect(0, 0, videoWidth, videoHeight);
-        canvasRef && canvasRef.current && faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
-        canvasRef && canvasRef.current && faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections);
-        canvasRef && canvasRef.current && faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections);
-
-        // Go into detections and get the to FaceExpression
-        const expression = detections[0].expressions;
-              
-        // Get the expression with the highest value
-        const highestExpression = Object.keys(expression).reduce((a, b) => expression[a] > expression[b] ? a : b);
-        console.log(highestExpression);
-        setResults(highestExpression);
+  
+        if (detections.length > 0) {
+          const resizedDetections = faceapi.resizeResults(detections, displaySize);
+          canvasRef && canvasRef.current && canvasRef.current.getContext('2d').clearRect(0, 0, videoWidth, videoHeight);
+          canvasRef && canvasRef.current && faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
+          canvasRef && canvasRef.current && faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections);
+          canvasRef && canvasRef.current && faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections);
+  
+          // Go into detections and get the first FaceExpression
+          const expression = detections[0].expressions;
+  
+          if (expression) {
+            // Get the expression with the highest value
+            const highestExpression = Object.keys(expression).reduce((a, b) => expression[a] > expression[b] ? a : b);
+            console.log(highestExpression);
+            setResults(highestExpression);
+          }
+        }
       }
-    }, 100)
+    }, 100);
   }
 
   const closeWebcam = () => {
